@@ -11,14 +11,37 @@
 <script>
     // Example data
     var data = [1, 3, 4, 4, 6, 8];
-    var select  = d3.select(".holder")
-    .selectAll("div")
-    .data(data)
-    .enter().append("div")
-    .style("width", function(value) { return value* 10 + "px";})
-    .style("background", "blue")
-    .style("height", "10px")
-    .style("margin-bottom", "1px")
-    ;
+
+
+    var update = function(data){
+        var divs = d3.select(".holder")
+        .selectAll("div")
+        .data(data);
+
+        divs.enter().append("div")
+        .style("width", function(value) { return value* 10 + "px";})
+        .style("background", "blue")
+        .style("height", "10px")
+        .style("margin-bottom", "1px")
+        ;
+        divs.exit().remove();
+    }
+
+    // Update method
+    update(data);
+
+    var generaterRandomData = function(){
+        var itemsLen = Math.random()*20;
+        var results = [];
+        for (var ii = 0; ii <= itemsLen; ii++){
+            var value = Math.random()*100;
+            results.push(value);
+        };
+        return results;
+    };
+    setInterval(function(){
+        var newData = generaterRandomData(); 
+        update(newData);
+    }, 1500);
 
 </script>
