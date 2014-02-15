@@ -1,0 +1,24 @@
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<body>
+    <p> Coolio </p>
+
+    <div class="holder">
+    </div>
+
+    
+</body>
+
+<script>
+    // Example data
+    var data = [1, 3, 4, 4, 6, 8];
+    var select  = d3.select(".holder")
+    .selectAll("div")
+    .data(data)
+    .enter().append("div")
+    .style("width", function(value) { return value* 10 + "px";})
+    .style("background", "blue")
+    .style("height", "10px")
+    .style("margin-bottom", "1px")
+    ;
+
+</script>
