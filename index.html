@@ -19,6 +19,7 @@
         .data(data);
 
         divs.style("background", "green");
+        divs.style("width", function(value) { console.log(value); return value * 10 + "px";})
 
         divs.enter().append("div")
         .style("width", function(value) { console.log(value); return value * 10 + "px";})
