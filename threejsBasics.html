@@ -1,4 +1,4 @@
-<script src="js/three.min.js"></script>
+<script src="three.min.js"></script>
 <script src="underscore.js"></script>
 
 
@@ -8,8 +8,10 @@
   var camera, scene, renderer;
     var geometry, material, mesh;
 
-    init();
-    animate();
+    setTimeout(function(){
+        init();
+        animate();
+    }, 2000);
 
     function init() {
 
