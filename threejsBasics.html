@@ -18,15 +18,15 @@
     radius = 30;
     diameter = radius * 2;
 
+    material = null;
     function addSphere(scene , position ){
-        var mesh, geometry, material = null;
+        var mesh, geometry = null ;
 
         geometry = new THREE.SphereGeometry( radius, 32, 32 );
-        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: false} );
 
         mesh = new THREE.Mesh( geometry, material );
 
-        mesh.position = position;
+        // mesh.position = position;
         scene.add( mesh );
         return mesh;
 
@@ -40,6 +40,7 @@
     diffY = 0;
     diffX = 0;
 
+    /*
     document.onmousemove = function(ee){
 
             diffY =  prevYMouse - ee.pageY;
@@ -48,6 +49,7 @@
             prevYMouse = ee.pageY;
             prevXMouse = ee.pageX;
     };
+    */
 
     function positionCamera(camera){
         camera.position.z = 3000;
@@ -95,6 +97,8 @@
 
     };
     function renderPyramid(scene, ballCount){
+
+        material = new THREE.MeshBasicMaterial( { color: 0xff0000, wireframe: false} );
         // divide by two, and sqrt 
         var sideCount =   Math.ceil(Math.sqrt( Math.ceil(ballCount/2)));
         currentSideCount = sideCount;
@@ -109,14 +113,14 @@
 
         scene = new THREE.Scene();
 
-        renderPyramid(scene, 20);
+        renderPyramid(scene, 100);
 
         renderer = new THREE.CanvasRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
 
         document.body.appendChild( renderer.domElement );
 
-        positionCamera(camera);
+        //positionCamera(camera);
     }
 
     function animate() {
@@ -129,7 +133,6 @@
         mesh.rotation.y += 0.02;
         */
 
-        updateCamera();
         renderer.render( scene, camera );
 
     }
