@@ -79,13 +79,29 @@
 
             currentRotation = 0;
             */
-
-
     };
 
 
+    function renderFloor(scene, sideCount, yy){
+        for(var xx = 0; xx  < sideCount; xx++){
+            for (var zz = 0; zz < sideCount; zz++){
+                var x = diameter * xx;
+                var z = diameter * zz;
+                var y = diameter * yy;
+                addSphere(scene, {x: x, y: yy, z:z});
+            }
+        }
 
-
+    };
+    function renderPyramid(scene, ballCount){
+        // divide by two, and sqrt 
+        var sideCount =   Math.ceil(Math.sqrt( Math.ceil(ballCount/2)));
+        currentSideCount = sideCount;
+        for ( var yy = 0 ;  yy < sideCount; yy++){
+            renderFloor(scene, currentSideCount , yy);
+            currentSideCount--;
+        }
+    };
     function init() {
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
@@ -93,15 +109,9 @@
 
         scene = new THREE.Scene();
 
-        sideCount = 3;
-        for(var xx = 0; xx  < sideCount; xx++){
-            for (var zz = 0; zz < sideCount; zz++){
-                var x = diameter * xx;
-                var z = diameter * zz;
-                addSphere(scene, {x: x, y: 0, z:z});
-            }
-        }
         
+        renderPyramid(scene, 100);
+
         renderer = new THREE.CanvasRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
 
