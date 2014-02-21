@@ -88,7 +88,8 @@
                 var x = diameter * xx;
                 var z = diameter * zz;
                 var y = diameter * yy;
-                addSphere(scene, {x: x, y: yy, z:z});
+                console.log(y);
+                addSphere(scene, {x: x, y: y, z: z});
             }
         }
 
@@ -103,14 +104,12 @@
         }
     };
     function init() {
-
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
         camera.position.z = 1000;
 
         scene = new THREE.Scene();
 
-        
-        renderPyramid(scene, 100);
+        renderPyramid(scene, 30);
 
         renderer = new THREE.CanvasRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
