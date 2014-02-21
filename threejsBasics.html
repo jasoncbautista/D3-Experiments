@@ -31,14 +31,27 @@
 
     };
 
+    function positionCamera(camera){
+        camera.position.z = 3000;
+        camera.position.y = 2000;
+    };
+
     function init() {
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
         camera.position.z = 1000;
 
+        positionCamera(camera);
         scene = new THREE.Scene();
 
-        addSphere(scene, {x: 0, y: 0, z:0});
+        sideCount = 3;
+        for(var xx = 0; xx  < sideCount; xx++){
+            for (var zz = 0; zz < sideCount; zz++){
+                var x = diameter * xx;
+                var z = diameter * zz;
+                addSphere(scene, {x: x, y: 0, z:z});
+            }
+        }
         
         renderer = new THREE.CanvasRenderer();
         renderer.setSize( window.innerWidth, window.innerHeight );
