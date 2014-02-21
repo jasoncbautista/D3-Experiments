@@ -1,5 +1,6 @@
 <script src="three.min.js"></script>
 <script src="underscore.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 
 <script>
@@ -14,7 +15,7 @@
     }, 2000);
 
 
-    radius = 50;
+    radius = 30;
     diameter = radius * 2;
 
     function addSphere(scene , position ){
@@ -31,17 +32,65 @@
 
     };
 
+    prevYMouse = 0;
+    prevXMouse = 0;
+    currentRotation = 0;
+    rotationInterval = 0.005;
+
+    diffY = 0;
+    diffX = 0;
+
+    document.onmousemove = function(ee){
+
+            diffY =  prevYMouse - ee.pageY;
+            diffX =  prevXMouse - ee.pageX;
+
+            prevYMouse = ee.pageY;
+            prevXMouse = ee.pageX;
+    };
+
     function positionCamera(camera){
         camera.position.z = 3000;
-        camera.position.y = 2000;
+        camera.position.y = 2000; 
     };
+
+
+    function updateCamera(){
+        /*
+            if (diffY > 0){
+                
+                currentRotation+=rotationInterval;
+            } else {
+                currentRotation-=rotationInterval;
+            }
+
+            camera.rotateX(currentRotation);
+
+            currentRotation = 0;
+
+            if (diffX > 0){
+                
+                currentRotation-=rotationInterval;
+            } else {
+                currentRotation+=rotationInterval;
+            }
+
+            camera.rotateY(currentRotation);
+
+            currentRotation = 0;
+            */
+
+
+    };
+
+
+
 
     function init() {
 
         camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
         camera.position.z = 1000;
 
-        positionCamera(camera);
         scene = new THREE.Scene();
 
         sideCount = 3;
@@ -58,6 +107,7 @@
 
         document.body.appendChild( renderer.domElement );
 
+        positionCamera(camera);
     }
 
     function animate() {
@@ -70,6 +120,7 @@
         mesh.rotation.y += 0.02;
         */
 
+        updateCamera();
         renderer.render( scene, camera );
 
     }
