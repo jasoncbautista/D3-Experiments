@@ -21,15 +21,14 @@ Abusing the force talk:
     * * 
   
 
- Source of graphs:
+Source of graphs:
 
- http://www.d3noob.org/2013/03/what-is-force-layout-diagram-in-d3js.html
+http://www.d3noob.org/2013/03/what-is-force-layout-diagram-in-d3js.html
 
 
 Force directed graph:
 
 http://bl.ocks.org/mbostock/4062045
-
 
 
 
