@@ -12,7 +12,7 @@ Abusing the force talk:
 
 -------
 [ ] additive d3 line graph (area under curve)
-
+[ ] Tips and tricks book, really good
          ..
 ..    ...  . 
   ....       . ...
