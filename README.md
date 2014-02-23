@@ -7,7 +7,7 @@ Abusing the force talk:
 
 
 [ ] experiment with  centers
-[ ]  links (from orange sample)
+[x]  links (from orange sample)
 
 
 -------
@@ -51,7 +51,8 @@ http://threejs.org/examples/#webgl_particles_dynamic
 Awesome:
 
 http://threejs.org/examples/#webgl_geometry_minecraft 
-
+
+
 
 
 
