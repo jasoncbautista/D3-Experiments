@@ -7,9 +7,10 @@ Abusing the force talk:
 
 
 [ ] experiment with  centers
+
 [x]  links (from orange sample)
 
-
+[x]  directed graph
 -------
 [ ] additive d3 line graph (area under curve)
 [ ] Tips and tricks book, really good
@@ -52,6 +53,10 @@ Awesome:
 
 http://threejs.org/examples/#webgl_geometry_minecraft 
 
+
+Notes:
+
+Instead of having links point to indexes, just embed the node objects as pointers named source and target
 
 
 
