@@ -1,2 +1,3 @@
 [] paths in svg
 [ ] under the curve graph
+[] benchmark d3 on older machines, it can get pretty slow.
