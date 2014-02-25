@@ -21,6 +21,8 @@ Abusing the force talk:
 *  *   * 
     * * 
   
+  Area under curve:
+  http://www.d3noob.org/2013/01/filling-area-under-graph.html
 
 Source of graphs:
 
