@@ -15,6 +15,8 @@
 
 <body>
  <img src="logoClean.png" class='logo'/>
+
+ <img src="logoClean.png" class='logo2'/>
 </body>
 
 <script>
@@ -28,9 +30,9 @@ $(document).ready(function(){
             });
             
         };
-        var rotate  = function(xdeg, ydeg, zdeg){
+        var rotate  = function(xdeg, ydeg, zdeg, className){
             zdeg = 180 - zdeg;
-            $(".logo").css({
+            $(className).css({
                 "-webkit-transform":  "rotateX(" +xdeg + "deg) rotateZ("+ zdeg +"deg)"
             });
         };
@@ -46,9 +48,10 @@ $(document).ready(function(){
             var ZDegrees = Math.floor(ratio * zDegreesMax);
 
             
-            //rotateZ(ZDegrees);
             var xRotation = functionRotateX(ee);
-            rotate(xRotation, 0, ZDegrees);
+            rotate(xRotation, 0, ZDegrees, ".logo");
+            //rotate(xRotation, 0, ZDegrees -180, ".logo2");
+            //rotateZ(ZDegrees);
         });
 
         // Function to rate ALONG x axis
