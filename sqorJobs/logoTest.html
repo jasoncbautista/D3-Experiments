@@ -28,9 +28,10 @@ $(document).ready(function(){
             });
             
         };
-        var rotateX  = function(deg, letter){
+        var rotate  = function(xdeg, ydeg, zdeg){
+            zdeg = 180 - zdeg;
             $(".logo").css({
-                "-webkit-transform": "rotateX("+ deg +"deg)"
+                "-webkit-transform":  "rotateX(" +xdeg + "deg) rotateZ("+ zdeg +"deg)"
             });
         };
 
@@ -45,8 +46,9 @@ $(document).ready(function(){
             var ZDegrees = Math.floor(ratio * zDegreesMax);
 
             
-            rotateZ(ZDegrees);
-            //functionRotateX(ee);
+            //rotateZ(ZDegrees);
+            var xRotation = functionRotateX(ee);
+            rotate(xRotation, 0, ZDegrees);
         });
 
         // Function to rate ALONG x axis
@@ -57,10 +59,8 @@ $(document).ready(function(){
             var xDegreesMax= 360;
             var denominator  = screenWidth;
             var ratio = (x/denominator);
-            var yDegrees = Math.floor(ratio * xDegreesMax);
-
-            
-            rotateX(xDegrees);
+            var xDegrees = Math.floor(ratio * xDegreesMax);
+            return xDegrees;
         };
 
 
