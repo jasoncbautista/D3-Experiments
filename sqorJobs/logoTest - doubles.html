@@ -10,7 +10,7 @@
 }
 .logo{
     top: 100px;
-    left: 50px;
+    left: 100px;
 
 }
 .logo2{
@@ -20,7 +20,6 @@
     top: 150px;
     left: 250px;
 
-    display: none;
 }
 
 </style>
@@ -65,10 +64,8 @@ $(document).ready(function(){
 
             
             var xRotation = functionRotateX(ee);
-            //rotate(xRotation, 0, ZDegrees -180,  50 + xRotation, 100, ".logo");
-            rotate(xRotation, 0, ZDegrees -180, 100 , 50 + xRotation,".logo");
-            //$(".logo2").show();
-            //rotate(xRotation, 0, ZDegrees , 150, 250 - xRotation/2,".logo2");
+            rotate(xRotation, 0, ZDegrees -180, 100, 100 + xRotation/2,".logo");
+            rotate(xRotation, 0, ZDegrees , 150, 250 - xRotation/2,".logo2");
             //rotateZ(ZDegrees);
             
         });
