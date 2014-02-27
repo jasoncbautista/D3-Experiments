@@ -1,0 +1,36 @@
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+<style>
+
+.logo{
+    -webkit-transform: rotateZ(180deg); /* Chrome, Safari, Opera */
+    transform: rotateZ(180deg);
+}
+
+</style>
+
+<body>
+ <img src="logoClean.png" class='logo'/>
+</body>
+
+<script>
+
+$(document).ready(function(){
+
+        $(document.body).mousemove(function(ee){
+            var screenWidth = $(window).width();
+            var x = ee.pageX;
+
+            var yDegreesMax= 180;
+            var ratio = (x/screenWidth);
+            var yDegrees = Math.floor(ratio * yDegreesMax);
+
+            console.log(yDegrees);
+
+
+        });
+});
+
+</script>
