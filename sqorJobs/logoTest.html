@@ -21,28 +21,51 @@
 
 $(document).ready(function(){
 
-        var rotateY  = function( deg){
+        var rotateZ  = function( deg){
             deg = 180 - deg;
             $(".logo").css({
                 "-webkit-transform": "rotateZ("+ deg +"deg)"
             });
             
         };
+        var rotateX  = function(deg, letter){
+            $(".logo").css({
+                "-webkit-transform": "rotateX("+ deg +"deg)"
+            });
+        };
+
+
         $(document.body).mousemove(function(ee){
             var screenWidth = $(window).width();
             var x = ee.pageX;
 
-            var yDegreesMax= 180;
+            var zDegreesMax= 180;
             var denominator  = screenWidth;
             var ratio = (x/denominator);
-            var yDegrees = Math.floor(ratio * yDegreesMax);
+            var ZDegrees = Math.floor(ratio * zDegreesMax);
 
-            console.log(yDegrees);
             
-            rotateY(yDegrees);
-
-
+            rotateZ(ZDegrees);
+            //functionRotateX(ee);
         });
+
+        // Function to rate ALONG x axis
+        var functionRotateX = function(ee){
+            var screenWidth = $(window).width();
+            var x = ee.pageX;
+
+            var xDegreesMax= 360;
+            var denominator  = screenWidth;
+            var ratio = (x/denominator);
+            var yDegrees = Math.floor(ratio * xDegreesMax);
+
+            
+            rotateX(xDegrees);
+        };
+
+
+
+
 });
 
 </script>
