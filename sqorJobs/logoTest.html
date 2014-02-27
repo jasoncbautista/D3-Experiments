@@ -7,6 +7,8 @@
 .logo{
     -webkit-transform: rotateZ(180deg); /* Chrome, Safari, Opera */
     transform: rotateZ(180deg);
+
+    margin: 100px;
 }
 
 </style>
@@ -19,15 +21,25 @@
 
 $(document).ready(function(){
 
+        var rotateY  = function( deg){
+            deg = 180 - deg;
+            $(".logo").css({
+                "-webkit-transform": "rotateZ("+ deg +"deg)"
+            });
+            
+        };
         $(document.body).mousemove(function(ee){
             var screenWidth = $(window).width();
             var x = ee.pageX;
 
             var yDegreesMax= 180;
-            var ratio = (x/screenWidth);
+            var denominator  = screenWidth;
+            var ratio = (x/denominator);
             var yDegrees = Math.floor(ratio * yDegreesMax);
 
             console.log(yDegrees);
+            
+            rotateY(yDegrees);
 
 
         });
